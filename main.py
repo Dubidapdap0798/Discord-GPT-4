@@ -114,7 +114,7 @@ async def chat(ctx : discord.Message, *, text):
 
 
         response = await openai.ChatCompletion.acreate(
-            model="gpt-3",
+            model="gpt-3.5",
             messages= messages,
             user = str(ctx.author.id)
     )
