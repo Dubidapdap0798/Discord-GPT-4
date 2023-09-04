@@ -73,7 +73,7 @@ async def clear(ctx : discord.Interaction):
 
 
 @bot.command(name="chat", description="Chat with me.")
-@commands.cooldown(1, 60, commands.BucketType.guild)  
+@commands.cooldown(1, 5, commands.BucketType.guild)  
 async def chat(ctx : discord.Message, *, text):
     try:
         text = text.lower()
