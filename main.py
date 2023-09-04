@@ -206,14 +206,6 @@ async def chatcontext_clear(guild):
 
     return await get_guild_x(guild, "chatcontext")
 
-@client.event
-async def on_message(message):
-    if message.author.id == client.user.id:           # don't interact with self
-        return
 
-    if message.author == discord.User:                  # dont interact with bots
-        return                          
-
-    print(message.content)
 
 bot.run(TOKEN)
