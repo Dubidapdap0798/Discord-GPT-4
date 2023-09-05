@@ -105,7 +105,61 @@ async def chat(ctx : discord.Message, *, text):
         
         prmpt = "You are a helpful bot and jolly bot, you love anime, You are created by Dubidapdap the Lead Moderator of Cryptopia."
         prmpt = "Cryptopia is a next gen metaverse MMORPG (massively multiplayer online role-playing game based 100 percent on the blockchain technology and cryptocurrency, Geographically, it’s a city-state that exists on international waters through seasteading; this means its located on sea, and outside the jurisdiction of any country. Upon the gradual climate, economic and political downfall of this world, people sailed into a new world called Cryptopia defined by a lost Whitepaper where they created a decentralized governing body. Cryptopians had different philosophies, and eventually split into 4 factions. "
-        prmpt= "Tycoon and Adventurer are the two main strategic gameplays of Cryptopia. You can choose to invest your money and play as a Tycoon, or invest your time and play as an Adventurer; however if you're a jack-of-all-trades, you can invest your time and money to pursue both strategies. Tycoon: Claim land tiles (some with natural resources in them), construct buildings and facilities on them → hire Cryptopians (adventurers) → produce goods. End goal: ultimately build your own DeFi empire. Adventurer: This strategy is our Free-2-Play model; perform quests and tasks to earn XP (experience points) and use it to upgrade your player’s skills and career all while earning rewards. The more you advance in your career, the more quests and tasks will be available to you. End goal: play-and-earn to eventually progress your way into becoming a Tycoon. Cryptopia is designed to seamlessly integrate both these gameplays within each other. Tycoons need the Adventurers and Adventurers need the Tycoons as part of labor in the game. Adventurer players rely on the Tycoon players to earn, because the Tycoons will hire them as a resource when constructing a factory, mine or any other type of structure."
+        prmpt = "Tycoon and Adventurer are the two main strategic gameplays of Cryptopia. You can choose to invest your money and play as a Tycoon, or invest your time and play as an Adventurer; however if you're a jack-of-all-trades, you can invest your time and money to pursue both strategies. Tycoon: Claim land tiles (some with natural resources in them), construct buildings and facilities on them → hire Cryptopians (adventurers) → produce goods. End goal: ultimately build your own DeFi empire. Adventurer: This strategy is our Free-2-Play model; perform quests and tasks to earn XP (experience points) and use it to upgrade your player’s skills and career all while earning rewards. The more you advance in your career, the more quests and tasks will be available to you. End goal: play-and-earn to eventually progress your way into becoming a Tycoon. Cryptopia is designed to seamlessly integrate both these gameplays within each other. Tycoons need the Adventurers and Adventurers need the Tycoons as part of labor in the game. Adventurer players rely on the Tycoon players to earn, because the Tycoons will hire them as a resource when constructing a factory, mine or any other type of structure."
+        prmpt = "Your Cryptopia Multisig Wallet is generated upon creating your game account, serving as both your Cryptopia account and a secure storage for all your in-game assets, whether fungible or non-fungible. Its multisig nature ensures heightened security, guaranteeing the safety of your Cryptopia assets. This wallet can also function independently, allowing its use not only within the game but also with external peer-to-peer exchanges. Similar to many blockchain games, you typically have to link an external wallet like Metamask to carry out transactions, necessitating a temporary departure from the game. In the case of Cryptopia, though, there's no need to exit the game as the wallet is seamlessly integrated within it. All transactions take place within the game environment. This streamlined setup makes starting with Cryptopia incredibly straightforward: just download the game, launch it, set up a PIN, and you're good to go."
+        prmpt = ""
+        import discord
+from discord.ext import commands
+
+TOKEN = 'YOUR_DISCORD_BOT_TOKEN'
+bot = commands.Bot(command_prefix='!')
+
+@bot.event
+async def on_ready():
+    print(f'Logged in as {bot.user.name} ({bot.user.id})')
+
+@bot.command()
+async def team(ctx):
+    # Creating an embed
+    embed = discord.Embed(title=":cryptopiahex: Cryptopia Team", color=0x2ECC71)
+    
+    # Adding the Cryptopia Team members
+    cryptopia_team = """
+    @HFB | Cryptopia.com  - 395087960820940800
+    @Hans Leek Cryptopia.com - 607491905374388224 
+    @Chieftopia  - 402372169457205248 
+    @toine2one - 447364034136637470
+    @Div - 841715680390283304
+    @Laudie - 378374661328732161
+    @Cysa - 916161079351078963
+    @Dubidapdap - 395087960820940800
+    @JM - 771636678116245524
+    @Kyle Zale - 968770202722517013
+    @zimmah - 88843968695013376
+    """
+    embed.add_field(name=":cryptopiahex: Cryptopia Team", value=cryptopia_team, inline=False)
+
+    # Adding the Moderators
+    moderators = """
+    @Aki | Cryptopia - 745520965794005046
+    @Abo 🪷 - 680633851764408356
+    @Dadaaa - 752734036367245402
+    @Dinooo - 757612693162295991
+    @Pickles - 909446059183444038
+    @Kurt Jhasel - 680633851764408356
+    """
+    embed.add_field(name=":WhiteCRT: Moderator", value=moderators, inline=False)
+
+    # Adding the Ambassadors
+    ambassadors = """
+    @DinhBillionaire - 912511411597492264
+    @IceBBQ - 731851057654792283
+    @nchrousis - 580728992672514059
+    """
+    embed.add_field(name=":AmbassadorBadge: Ambassador", value=ambassadors, inline=False)
+    
+    await ctx.send(embed=embed)
+    
         messages = [{"role": "system", "content": prmpt}]      
         
         if len(chatcontext) > 0:
