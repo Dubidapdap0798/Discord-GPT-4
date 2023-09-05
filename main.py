@@ -12,6 +12,8 @@ PG_PW =                 os.getenv('PGPASSWORD')
 PG_HOST =               os.getenv('PGHOST')
 PG_PORT =               os.getenv('PGPORT')
 PG_DB =                 os.getenv('PGPDATABASE')
+WRITE_SONIC_API_ENDPOINT = 'b806ef93-225c-4ff7-ae63-bef5ae726976'
+WRITE_SONIC_API_KEY = '23db8aeb-7f30-49d4-a963-4fd688e66e69'
 
 
 intents = discord.Intents.default()
@@ -206,6 +208,28 @@ async def chatcontext_clear(guild):
 
     return await get_guild_x(guild, "chatcontext")
 
+
+    
+@client.command()
+async def generate(ctx, *, prompt: str):
+    """
+    Command to generate content using WriteSonic.
+    """
+    headers = {
+        'Authorization': f'Bearer {WRITE_SONIC_API_KEY}'
+    }
+    payload = {
+        'prompt': prompt,
+        # Add more parameters if necessary.
+    }
+
+    response = requests.post(WRITE_SONIC_API_ENDPOINT, headers=headers, json=payload)
+    data = response.json()
+
+    # You might need to adjust how you extract the text based on WriteSonic's response structure
+    text = data.get('generated_text', 'Error generating content.')
+
+    await ctx.send(text)
 
 
 bot.run(TOKEN)
