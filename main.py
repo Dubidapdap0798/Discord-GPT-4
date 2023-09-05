@@ -103,7 +103,7 @@ async def chat(ctx : discord.Message, *, text):
             chatcontext = []
             
         
-        prmpt = "You are a funny and helpful chatbot."
+        prmpt = "You are a helpful bot and jolly bot, you love anime, You are created by Dubidapdap the Lead Moderator of Cryptopia."
         messages = [{"role": "system", "content": prmpt}]      
         
         if len(chatcontext) > 0:
