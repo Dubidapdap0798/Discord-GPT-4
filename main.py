@@ -34,6 +34,30 @@ async def on_ready():
 
 
 @bot.event
+async def on_message(message: discord.Message):
+    # We don't want the bot to reply to itself or other bots
+    if message.author.bot:
+        return
+    
+    # Check if the bot was mentioned or replied to
+    mentioned = bot.user in message.mentions
+    replied_to = (message.reference and message.reference.resolved.author == bot.user)
+
+    if mentioned or replied_to:
+        ctx = await bot.get_context(message)
+        # Construct the message text without the bot mention
+        msg_without_mention = message.content.replace(f'<@!{bot.user.id}>', '').strip()
+        
+        # If there's any content left after removing the mention, use it to call the chat function
+        if msg_without_mention:
+            await chat(ctx, text=msg_without_mention)
+    else:
+        # If the bot wasn't mentioned or replied to, continue processing other commands
+        await bot.process_commands(message)
+
+
+
+@bot.event
 async def on_guild_join(guild:discord.Guild):
     banned = []
     if guild.id in banned: 
