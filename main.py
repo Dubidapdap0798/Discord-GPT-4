@@ -104,6 +104,7 @@ async def chat(ctx : discord.Message, *, text):
             
         
         prmpt = "You are a helpful bot and jolly bot, you love anime, You are created by Dubidapdap the Lead Moderator of Cryptopia."
+        prmpt = "Cryptopia is a next gen metaverse MMORPG (massively multiplayer online role-playing game based 100 percent on the blockchain technology and cryptocurrency, Geographically, it’s a city-state that exists on international waters through seasteading; this means its located on sea, and outside the jurisdiction of any country. Upon the gradual climate, economic and political downfall of this world, people sailed into a new world called Cryptopia defined by a lost Whitepaper where they created a decentralized governing body. Cryptopians had different philosophies, and eventually split into 4 factions. "
         messages = [{"role": "system", "content": prmpt}]      
         
         if len(chatcontext) > 0:
