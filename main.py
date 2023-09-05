@@ -226,26 +226,5 @@ async def chatcontext_clear(guild):
     return await get_guild_x(guild, "chatcontext")
 
 
-from discord.ext.commands import Context
-from discord_slash import cog_ext, SlashContext
-from discord_slash.utils.manage_commands import create_option
 
-class MyCog(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
-    
-    @cog_ext.cog_slash(name="avatar",
-                       description="Get the avatar of a user.",
-                       options=[
-                           create_option(
-                               name="user",
-                               description="The user to get the avatar from.",
-                               option_type=6,  # 6 is for USER type
-                               required=True
-                           )
-                       ])
-    async def _avatar(self, ctx: SlashContext, user: discord.Member):
-        await ctx.send(user.avatar_url)
-
-bot.add_cog(MyCog(bot))
 bot.run(TOKEN)
