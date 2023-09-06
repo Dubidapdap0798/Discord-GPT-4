@@ -112,7 +112,10 @@ async def chat(ctx : discord.Message, *, text):
         prmpt += "CRT is Cryptopia's Native Token and its In-Game Currency. All fungible and non-fungible assets such as coal, wood, gold, electricity, title deeds, modules, and blueprints—just to name a few—are denominated in CRT. Using a single native token as the in-game currency can help create a more unified and stable economy within the game and makes it easier for players to trade and exchange items with one another, as they all have a common denomination."
         prmpt += "The supply of CRT is capped at 10 billion. There will never be more CRT than this amount*. The game slowly releases the tokens as quest rewards. Players are stimulated to re-invest their earnings to increase their potential. We anticipate that demand steadily rises as more players want to progress."
         prmpt += "The Supply of CRT is Distributed for 5 Different Purposes; In-Game: 40% (4 billion CRT) ; Liquidity Pools: 10% (1 billion CRT) ; Investors: 25% (2.5 billion CRT) ; Partnerships: 5% (500 million CRT) ; Company Treasury: 20% (2 billion CRT)"
-
+        prmpt += "Circulating Supply ; The circulating supply is difficult to predict. The tokens held by investors and the team are subject to a vesting scheme of 24 months. If and when these tokens will be available is yet to be seen. Another factor for the size of the circulating supply is the rate by which the 40% in-game rewards are earned and held. We of course, believe that Cryptopia offers plenty of gameplay and fun. This is why we have confidence in a healthy in-game economy and fitting circulating supply."
+        prmpt += "Cryptopia Founder is Frank Bonnet"
+        prmpt += "Cryptopia Co-Founder is Hans Leek"
+        prmpt += "The one who though Dubidapdap to create this bot is Jonbeau"
         messages = [{"role": "system", "content": prmpt}]      
         
         if len(chatcontext) > 0:
